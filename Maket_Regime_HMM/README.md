@@ -1,42 +1,37 @@
-# Credit Default Modeling using First Passage Time in Markov Chains
+# 📊 Market Regime Detection using Hidden Markov Models (HMM)
 
-This project models **credit default risk** using a **discrete-time Markov chain**, estimating **first passage time distributions** to default. It is inspired by techniques in **stochastic chemical kinetics**—particularly enzyme turnover and waiting time analysis—and applies those ideas to credit rating transitions in finance.
+This project applies a **Hidden Markov Model (HMM)** to detect **market regimes** in the **NIFTY 50 index** based on historical price data. Using `hmmlearn`, the model identifies latent market states (e.g., bull, bear, volatile) based on daily log returns.
 
 ---
 
 ## 🔍 Objective
 
-To estimate the **likelihood and timing of credit default** for a borrower (e.g., company or bond issuer) by:
-
-- Modeling credit rating transitions as a Markov chain
-- Calculating **first-passage time** (FPT) distributions to the absorbing "default" state
-- Analyzing how credit quality evolves over time
+- Detect **market regimes** from price behavior using an unsupervised machine learning approach.
+- Estimate characteristics (mean return, volatility) of each hidden regime.
+- Visualize how market states evolve over time and their transitions.
 
 ---
 
 ## 🧪 Methodology
 
-- **Markov Chain Construction**: Define states as credit ratings (AAA, AA, A, ..., Default) and assign transition probabilities between them.
-- **Transition Matrix Analysis**: Use matrix powers to simulate multiple steps and calculate default probabilities over time.
-- **First Passage Time Calculation**: Extract the distribution of times at which the process first hits the "default" state.
-- **Visualization**: Plot default probabilities over time and highlight expected default horizons.
-
-This mimics **enzyme state transitions** and **waiting time distributions** in chemical kinetics, applied here to financial credit risk.
-
+- **Data Source**: NIFTY 50 historical data downloaded using `yfinance`
+- **Preprocessing**: Compute daily **log returns**
+- **Modeling**: Fit a **Gaussian HMM** with 3 hidden states to the return series
 ---
 
 ## 🛠️ Technologies Used
 
-- `NumPy` – Matrix operations and simulations
-- `SciPy` – For solving linear systems
-- `Matplotlib` – For visualizing default probabilities and trajectories
-- Jupyter Notebook – For interactive documentation
+- `Python` – Core language
+- `yfinance` – Downloading historical price data
+- `NumPy`, `Pandas` – Data manipulation and return calculation
+- `hmmlearn` – Fitting Hidden Markov Model
+- `Matplotlib` – Plotting market regimes
 
 ---
 
 ## 📊 Sample Output
 
-The notebook produces a histogram showing the distribution of default times based on first passage analysis.  
+The notebook produces a color-coded scatter plot of **NIFTY 50 prices** by regime helping in understanding which periods correspond to which type of market behavior.
 Run the notebook to generate the plot and explore the credit risk dynamics.
 
 ---
