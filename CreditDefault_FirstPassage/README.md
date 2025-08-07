@@ -1,4 +1,4 @@
-# Credit Default Modeling using First Passage Time in Markov Chains
+# Trade Arrival Simulation using Hawkes Process and Ogata’s Thinning
 
 This project models **credit default risk** using a **discrete-time Markov chain**, estimating **first passage time distributions** to default. It is inspired by techniques in **stochastic chemical kinetics**—particularly enzyme turnover and waiting time analysis—and applies those ideas to credit rating transitions in finance.
 
@@ -6,22 +6,30 @@ This project models **credit default risk** using a **discrete-time Markov chain
 
 ## 🔍 Objective
 
-To estimate the **likelihood and timing of credit default** for a borrower (e.g., company or bond issuer) by:
-
-- Modeling credit rating transitions as a Markov chain
-- Calculating **first-passage time** (FPT) distributions to the absorbing "default" state
-- Analyzing how credit quality evolves over time
+To simulate **self-exciting trade arrival times** using a **Hawkes process**, commonly used in high-frequency trading (HFT) models. The algorithm captures the clustering of trades by increasing the likelihood of future arrivals following a recent trade.
 
 ---
 
 ## 🧪 Methodology
 
-- **Markov Chain Construction**: Define states as credit ratings (AAA, AA, A, ..., Default) and assign transition probabilities between them.
-- **Transition Matrix Analysis**: Use matrix powers to simulate multiple steps and calculate default probabilities over time.
-- **First Passage Time Calculation**: Extract the distribution of times at which the process first hits the "default" state.
-- **Visualization**: Plot default probabilities over time and highlight expected default horizons.
+* **Hawkes Process Setup**:
+  The intensity function is:
 
-This mimics **enzyme state transitions** and **waiting time distributions** in chemical kinetics, applied here to financial credit risk.
+  $$
+  \lambda(t) = \mu + \sum_{t_i < t} \alpha e^{-\beta(t - t_i)}
+  $$
+
+  where each event increases the short-term rate of future events (self-excitation), and this effect decays over time.
+
+* **Ogata’s Thinning Algorithm**:
+  A rejection sampling method used to simulate non-homogeneous Poisson processes:
+
+  * Draw a candidate inter-arrival time
+  * Decay the intensity function
+  * Accept the event probabilistically
+
+* **Simulation Goal**:
+  Generate timestamps of simulated trades and visualize their temporal clustering.
 
 ---
 
@@ -54,4 +62,3 @@ PhD – Stochastic Kinetics | Financial Modeling | Python
 
 ---
 **Tags**: Credit Risk · Markov Chain · First Passage Time · Quant Finance · Stochastic Modeling · Python
-
