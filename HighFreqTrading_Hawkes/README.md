@@ -1,4 +1,4 @@
-# High Frequency Trading using Hawkes Process 
+# High Frequency Trading using Hawkes Process and Ogata’s Thinning
 
 This project models **credit default risk** using a **discrete-time Markov chain**, estimating **first passage time distributions** to default. It is inspired by techniques in **stochastic chemical kinetics**—particularly enzyme turnover and waiting time analysis—and applies those ideas to credit rating transitions in finance.
 
