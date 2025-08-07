@@ -1,7 +1,3 @@
-
-
-**************************************************************************
-
 # Credit Default Modeling using First Passage Time in Markov Chains
 
 This project models **credit default risk** using a **discrete-time Markov chain**, estimating **first passage time distributions** to default. It is inspired by techniques in **stochastic chemical kinetics**—particularly enzyme turnover and waiting time analysis—and applies those ideas to credit rating transitions in finance.
