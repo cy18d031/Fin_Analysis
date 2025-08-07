@@ -1,27 +1,23 @@
-# Credit Default Modeling using First Passage Time in Markov Chains
+# 📉 Value at Risk (VaR) and Conditional Value at Risk (CVaR) Simulation
 
-This project models **credit default risk** using a **discrete-time Markov chain**, estimating **first passage time distributions** to default. It is inspired by techniques in **stochastic chemical kinetics**—particularly enzyme turnover and waiting time analysis—and applies those ideas to credit rating transitions in finance.
+This project estimates **Value at Risk (VaR)** and **Conditional Value at Risk (CVaR)** using historical or simulated financial data. These are key risk metrics used in **quantitative finance** to assess the potential losses in a portfolio under adverse market conditions.
 
 ---
 
 ## 🔍 Objective
 
-To estimate the **likelihood and timing of credit default** for a borrower (e.g., company or bond issuer) by:
-
-- Modeling credit rating transitions as a Markov chain
-- Calculating **first-passage time** (FPT) distributions to the absorbing "default" state
-- Analyzing how credit quality evolves over time
+- Calculate the **VaR** of a financial asset or portfolio at different confidence levels.
+- Estimate **CVaR (Expected Shortfall)** to understand the average loss beyond the VaR threshold.
+- Visualize risk measures and loss distributions for better financial risk management.
 
 ---
 
 ## 🧪 Methodology
 
-- **Markov Chain Construction**: Define states as credit ratings (AAA, AA, A, ..., Default) and assign transition probabilities between them.
-- **Transition Matrix Analysis**: Use matrix powers to simulate multiple steps and calculate default probabilities over time.
-- **First Passage Time Calculation**: Extract the distribution of times at which the process first hits the "default" state.
-- **Visualization**: Plot default probabilities over time and highlight expected default horizons.
-
-This mimics **enzyme state transitions** and **waiting time distributions** in chemical kinetics, applied here to financial credit risk.
+- **Data Source**: Use historical price data or generate returns via simulation (e.g., geometric Brownian motion).
+- **Log Returns**: Compute daily log returns from price series.
+- **VaR Calculation**: Historical Method
+- **CVaR Calculation**: Average of losses exceeding VaR (tail losses)
 
 ---
 
@@ -31,12 +27,12 @@ This mimics **enzyme state transitions** and **waiting time distributions** in c
 - `SciPy` – For solving linear systems
 - `Matplotlib` – For visualizing default probabilities and trajectories
 - Jupyter Notebook – For interactive documentation
-
+- `yfinance` or simulated data – For historical asset prices  
 ---
 
 ## 📊 Sample Output
 
-The notebook produces a histogram showing the distribution of default times based on first passage analysis.  
+The notebook produces a histogram showing the distribution of the Time series plots of cumulative returns with VaR and CVaR thresholds
 Run the notebook to generate the plot and explore the credit risk dynamics.
 
 ---
